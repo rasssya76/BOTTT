@@ -1,4 +1,4 @@
-// SC ORI : DENIS
+// SC ORI : DENIS / DCODE DENPA
 
 // RECORDE : RAMA
 
@@ -1181,7 +1181,9 @@ _*${sym}━━「 MENU OWNER 」*_
  _${rm} ${prefix}gemuk [ _reply audio_ ]_
  _${rm} ${prefix}detikvn [ _reply audio caption angka_ ]_
  _${rm} ${prefix}detikvideo [ _reply video caption angka_ ]`
-sendButDocument(from, `${menu}`, "C R E A T E B Y R A M A G A N S",  fs.readFileSync('./sampah/Denpa'), {mimetype:Mimetype.pdf, thumbnail:fs.readFileSync('./media/image/banner.jpg'), filename:`${jmn} - ${week} - ${calender}`}, [{buttonId:``,buttonText:{displayText:'S&k \n\nSebenar nya saya itu. suka ngegay diam diam kalo ada yg minat ngegay sama saya silahkan pc ya muach😘😘'},type:1}], {quoted:fmen, contextInfo: { mentionedJid: [dtod,otod,stod], forwardingScore: 508, isForwarded: true, externalAdReply:{title:`${tampilUcapan} ${pushname}`,body:`*click here to play music`,mediaType:"2",thumbnail:ofrply,mediaUrl:`https://youtu.be/OwwHPRIju60`}}})
+sendButDocument(from, `${menu}`, "B Y R A M A 右", fs.readFileSync('./sampah/Denpa'), {mimetype:Mimetype.pdf, thumbnail:fs.readFileSync('./media/image/banner.jpg'), filename:`${jmn} - ${week} - ${calender}`}, [{buttonId:`p`,buttonText:{displayText:'S&k \n\nSebenar nya saya itu. suka ngegay diam diam kalo ada yg minat ngegay sama saya silahkan pc ya muach😘😘'},type:1}], {quoted:ftrol, contextInfo: { mentionedJid: [dtod,otod,stod], forwardingScore: 508, isForwarded: true, externalAdReply:{title:`${tampilUcapan} ${pushname}`,body:`*click here to play music`,mediaType:"2",thumbnail:ofrply,mediaUrl:`https://youtu.be/uQiF1yOnzDg`}}})
+lima = fs.readFileSync('./assets/help.mp3');
+denz.sendMessage(from, lima, MessageType.audio, {quoted: ftrol, mimetype: 'audio/mp4', ptt:true})
 break
 case 'command':
  stod = `${sender}`
@@ -1241,7 +1243,7 @@ case 'command':
                      }],
  listType: 1
 }
-denz.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftrol})
+denz.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:mek})
 break
 case 'ownermenu':
 menu = `_*${sym}━━「 MENU OWNER 」*_
