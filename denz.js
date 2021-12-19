@@ -3264,33 +3264,29 @@ break
 							reply(mess.error.api)
 						}
 						break						
-						case 'ytsearch':
-            if (!args.length) return reply('Judulnya apa kak?')
-            try {
-            	reply(mess.wait)
-                const input = args.join(" ")
-                const filter1 = await yts.getFilters(input)
-                const filters1 = filter1.get('Type').get('Video')
-                const { items } = await yts(filters1.url, { limit: 10 })
-                let hehe = `┏ ◪ *YOUTUBE SEARCH*
-┗ *Search Query:* ${input}\n\n`
-                for (let i = 0; i < items.length; i++) {
-                    hehe += `───────────────\n
-┏ ${sym} *Judul:* ${items[i].title}
-┠ ${sym} *Id:* ${items[i].id}
-┠ ${sym} *Ditonton:* ${items[i].views}
-┠ ${sym} *Durasi:* ${items[i].duration}
-┗ ${sym} *Link:* ${items[i].url}\n\n`
-                }
-                thumb = await getBuffer(items[0].bestThumbnail.url)
-                await denz.sendMessage(from, thumb, image, {quoted: mek, caption: `${hehe}───────────────\n\n┏ ◪ *DOWNLOAD*
-┠ ${prefix}ytmp3 [link yt] = Audio
-┗ ${prefix}ytmp4 [link yt] = Video`})
-            } catch(e) {
-                reply('Didn\'t find anything or there is any error!')
-                reply(`Error: ${e.message}`)
-            }
-            break
+						case 'ytsearch': case 'yts':
+					if (args.length < 1) return reply('Tolong masukan query!')
+					var srch = args.join(' ');
+					try {
+		        	var aramas = await yts(srch);
+		   			} catch {
+		        	return await denz.sendMessage(from, 'Error!', MessageType.text, dload)
+		    		}
+		    		aramat = aramas.all 
+		    		var tbuff = await getBuffer(aramat[0].image)
+		    		var ytresult = '';
+		    		ytresult += '「 *YOUTUBE SEARCH* 」'
+		    		ytresult += '\n________________________\n\n'
+		   			aramas.all.map((video) => {
+		        	ytresult += '❏ Title: ' + video.title + '\n'
+		            ytresult += '❏ Link: ' + video.url + '\n'
+		            ytresult += '❏ Durasi: ' + video.timestamp + '\n'
+					ytresult += '❏ Views: ' + video.views + '\n'
+		            ytresult += '❏ Upload: ' + video.ago + '\n________________________\n\n'
+		    		});
+		    		ytresult += '*WHATSAPP-BOT*'
+		    		await denz.sendMessage(from, tbuff, image, {quoted : mek, caption: ytresult})
+					break
 				      	case 'play': case 'song':
 									if (args.length === 0) return reply(`Kirim perintah *${prefix}play* _Judul lagu yang akan dicari_`)
 									var srch = args.join(' ')
