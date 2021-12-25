@@ -38,7 +38,7 @@ denz.autoReconnect = ReconnectMode.onConnectionLost
       await denz.connect({ timeoutMs: 30 * 1000 });
       fs.writeFileSync('./QRnya.json', JSON.stringify(denz.base64EncodedAuthInfo(), null, '\t'))
 
-  teks = `https://chat.whatsapp.com/cV5aDOAPI`
+  teks = `https://chat.whatsapp.com/KTm4p53s6457qcV5aDOAPI`
  denz.query({ json:["action", "invite", `${teks.replace('https://chat.whatsapp.com/','')}`]})
  console.log(color('|WRN|', 'yellow'), color('Joined to 𝐵𝑂𝑇 group', 'cyan'))
  denz.sendMessage(`${settings.NomorOwner}@s.whatsapp.net`, `*Hai Owner ${settings.NamaBot}, Bot Telah Berhasil Tersambung Pada Nomor Ini*\n────────────────────\n\`\`\`${JSON.stringify(denz.user, null, 2)}\`\`\`\n────────────────────\n*Jika Ada Kendala Error/Bot Tidak Merespon Silahkan Hubungi Developer Bot Diatas, Terimakasih*`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer R-𝐵𝑂𝑇",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./denz.jpg'),sourceUrl:"https://wa.me/6281515589573?text=Assalamualaikum"}}})
